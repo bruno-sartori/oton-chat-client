@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { storiesOf } from '@storybook/react';
+import launcherIcon from '@/assets/logo-no-bg.svg';
 import incomingMessageSound from '@/assets/sounds/notification.mp3';
-import { ChatWindow, Launcher } from './index';
+import launcherIconActive from '@/assets/close-icon.png';
+import ChatWindow from './ChatWindow';
 
-
-class Wrapper extends Component {
+class Launcher extends Component {
   state = {
     isOpen: false
   };
@@ -65,12 +66,17 @@ class Wrapper extends Component {
 
     return (
       <div id="sc-launcher">
+        <div className={classList.join(' ')} onClick={this.handleClick}>
+          <MessageCount count={newMessagesCount} isOpen={isOpen} />
+          <img alt="open-icon" className="sc-open-icon" src={launcherIconActive} />
+          <img alt="closed-icon" className="sc-closed-icon" src={launcherIcon} />
+        </div>
         <ChatWindow
           messageList={messageList}
           onUserInputSubmit={onMessageWasSent}
           onFilesSelected={onFilesSelected}
           agentProfile={agentProfile}
-          isOpen={true}
+          isOpen={isOpen}
           onClose={this.handleClick}
           showEmoji={showEmoji}
         />
@@ -79,8 +85,24 @@ class Wrapper extends Component {
   }
 }
 
-storiesOf('ChatWindow', module)
-  .add('Default', () => (
-    <Launcher />
-  )
-  );
+Launcher.propTypes = {
+  onMessageWasSent: PropTypes.func,
+  newMessagesCount: PropTypes.number,
+  isOpen: PropTypes.bool,
+  handleClick: PropTypes.func,
+  messageList: PropTypes.arrayOf(PropTypes.object),
+  mute: PropTypes.bool,
+  showEmoji: PropTypes.bool,
+};
+
+Launcher.defaultProps = {
+  newMessagesCount: 0,
+  showEmoji: true,
+  onMessageWasSent: () => {},
+  isOpen: false,
+  handleClick: () => {},
+  messageList: [],
+  mute: false,
+};
+
+export default Launcher;

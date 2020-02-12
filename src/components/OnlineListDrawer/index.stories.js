@@ -11,6 +11,12 @@ class Wrapper extends Component {
     this.setState(state => ({ visible: !state.visible }));
   }
 
+  closeDrawer = () => {
+    this.setState({
+      visible: false
+    });
+  }
+
   render() {
     const { visible } = this.state;
 
