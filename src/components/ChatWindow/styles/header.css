@@ -1,10 +1,10 @@
 .sc-header {
   background: #4e8cff;
-  min-height: 75px;
+  min-height: 30px;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
   color: white;
-  padding: 10px;
+  padding: 0 10px;
   box-shadow: 0 1px 4px rgba(0,0,0,.2);
   position: relative;
   box-sizing: border-box;
@@ -23,13 +23,14 @@
   flex: 1;
   user-select: none;
   border-radius: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .sc-header--close-button {
   width: 40px;
   align-self: center;
   height: 40px;
-  margin-right: 10px;
   box-sizing: border-box;
   cursor: pointer;
   border-radius: 5px;

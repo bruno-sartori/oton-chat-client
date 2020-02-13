@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import incomingMessageSound from '@/assets/sounds/notification.mp3';
-import { ChatWindow, Launcher } from './index';
-import messageHistory from './messageHistory';
+import Launcher from './teste';
+import messageHistory from '../ChatWindow/messageHistory';
 
 class Wrapper extends Component {
 
@@ -75,8 +75,8 @@ class Wrapper extends Component {
 }
 
 
-storiesOf('ChatWindow', module)
+storiesOf('TesteChatWindowWithOtherChat', module)
   .add('Default', () => (
     <Wrapper />
   )
-);
+  );
