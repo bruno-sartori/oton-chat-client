@@ -15,7 +15,6 @@ module.exports = {
     // eslint-disable-next-line global-require
     alias: { '@': require('path').resolve(__dirname, './src') },
   },
-  target: 'node',
 
   module: {
     rules: [
@@ -54,6 +53,18 @@ module.exports = {
         ],
       },
       {
+        // config for fonts
+        test: /\.(mp3)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'sounds',
+            },
+          },
+        ],
+      },
+      {
         test: /\.css$/,
         use: [
           {
@@ -78,7 +89,6 @@ module.exports = {
             loader: 'less-loader',
           },
         ],
-        // include: path.resolve(__dirname, './src'),
         exclude: path.resolve(__dirname, './node_modules'),
       },
     ],
@@ -89,6 +99,7 @@ module.exports = {
 
   // By default webpack logs warnings if the bundle is bigger than 200kb.
   performance: { hints: false },
+  /*
   externals: {
     // Don't bundle react or react-dom
     react: {
@@ -103,5 +114,5 @@ module.exports = {
       amd: 'ReactDOM',
       root: 'ReactDOM',
     },
-  },
+  }, */
 };

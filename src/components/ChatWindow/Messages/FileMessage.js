@@ -1,7 +1,7 @@
 import React from 'react';
-import FileIcon from '../FileIcon';
+import FileIcon from '../Icon/FileIcon';
 
-const FileMessage = (props) => {
+const FileMessage = props => {
   const { data = {} } = props;
 
   return (

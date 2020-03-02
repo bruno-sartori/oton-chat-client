@@ -1,2 +1,4 @@
-export { default as OnlineListDrawer } from './components/OnlineListDrawer';
-export { default as ChatWindow } from './components/ChatWindow';
+import './index.less';
+
+export { default as ChatLauncher } from './components/ChatLauncher';
+export { default as DVAChatReducer } from './reducers/dvaChatReducer';

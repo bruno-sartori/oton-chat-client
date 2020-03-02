@@ -1,0 +1,61 @@
+.sc-popup-window {
+  position: relative;
+  width: 150px;
+}
+
+.sc-popup-window--cointainer {
+  position: absolute;
+  right: 100px;
+  bottom: 20px;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 330px;
+  height: 260px;
+  max-height: 260px;
+  padding: 0 5px 5px 5px;
+  background: white;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: 0 7px 40px 2px rgba(148, 149, 150, 0.3);
+  transition: 0.2s ease-in-out;
+}
+
+.sc-popup-window--cointainer.closed {
+  bottom: 14px;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.sc-popup-window--cointainer::after {
+  content: '';
+  position: absolute;
+  right: 28px;
+  bottom: -6px;
+  z-index: -1;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.sc-popup-window--search {
+  display: block;
+  box-sizing: border-box;
+  width: 290px;
+  height: 40px;
+  margin: auto;
+  padding-left: 25px;
+  color: #565867;
+  font-size: 14px;
+  background-image: url(https://js.intercomcdn.com/images/search@2x.32fca88e.png);
+  background-repeat: no-repeat;
+  background-position: 0 12px;
+  background-size: 16px 16px;
+  border-width: 0 0 1px 0;
+  outline: none;
+}
+
+.sc-popup-window--search::placeholder {
+  color: #c1c7cd;
+}

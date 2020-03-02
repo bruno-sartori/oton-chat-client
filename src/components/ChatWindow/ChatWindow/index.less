@@ -1,0 +1,53 @@
+.sc-chat-window {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 250px;
+  height: 350px;
+  max-height: 590px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 7px 40px 2px rgba(148, 149, 150, 0.3);
+  transition: 0.3s ease-in-out;
+}
+
+.sc-chat-window.closed {
+  bottom: 90px;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.sc-message-list {
+  height: 80%;
+  padding: 40px 0 5px 0;
+  overflow-y: auto;
+  background-color: white;
+  background-size: 100%;
+}
+
+.sc-message--me {
+  text-align: right;
+}
+
+.sc-message--them {
+  text-align: left;
+}
+
+@media (max-width: 450px) {
+  .sc-chat-window {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    transition: 0.1s ease-in-out;
+  }
+
+  .sc-chat-window.closed {
+    bottom: 0;
+  }
+}

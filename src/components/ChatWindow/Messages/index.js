@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import chatIconUrl from '@/assets/chat-icon.svg';
+import logger from '@/utils/logger';
 import TextMessage from './TextMessage';
 import EmojiMessage from './EmojiMessage';
 import FileMessage from './FileMessage';
+import './index.less';
 
 class Message extends Component {
-
   renderMessageOfType = type => {
     const { message } = this.props;
 
-    switch(type) {
+    switch (type) {
       case 'text':
         return <TextMessage {...message} />;
       case 'emoji':
@@ -17,14 +18,14 @@ class Message extends Component {
       case 'file':
         return <FileMessage {...message} />;
       default:
-        console.error(`Attempting to load message with unsupported file type '${type}'`);
+        logger.error(`Attempting to load message with unsupported file type '${type}'`);
         return null;
     }
-  }
+  };
 
-  render () {
+  render() {
     const { message = {} } = this.props;
-    const contentClassList = ['sc-message--content', (message.author === 'me' ? 'sent' : 'received')];
+    const contentClassList = ['sc-message--content', message.author === 'me' ? 'sent' : 'received'];
 
     return (
       <div className="sc-message">

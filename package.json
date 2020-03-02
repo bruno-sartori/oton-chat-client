@@ -1,7 +1,7 @@
 {
-  "name": "cnn-react-components",
+  "name": "oton-chat-client",
   "version": "0.0.1",
-  "description": "React components for CNN portal",
+  "description": "Chat React components",
   "main": "build/bundle.js",
   "authors": {
     "name": "Bruno Sartori",
@@ -24,7 +24,7 @@
     "prettier": "node ./scripts/prettier.js",
     "depcheck": "./node_modules/.bin/depcheck"
   },
-  "repository": "/cnn-react-components",
+  "repository": "/oton-chat-client",
   "license": "MIT",
   "peerDependencies": {
     "react": "16.x"
@@ -37,8 +37,9 @@
     "axios": "^0.19.2",
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-preset-react-app": "^9.1.1",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "cross-env": "^6.0.3",
+    "dva": "^2.4.1",
     "emoji-js": "^3.5.0",
     "glob": "^7.1.6",
     "jquery": "^3.4.1",
@@ -50,6 +51,7 @@
     "react-linkify": "^1.0.0-alpha",
     "react-slick": "^0.25.2",
     "slick-carousel": "^1.8.1",
+    "socket.io-client": "^2.3.0",
     "sweetalert2": "^9.3.16",
     "webpack": "4",
     "xml-js": "^1.6.11"
