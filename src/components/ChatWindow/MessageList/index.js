@@ -8,18 +8,19 @@ class MessageList extends Component {
   }
 
   render() {
-    const { messages = [] } = this.props;
+    const { messageList = [], fullscreen = false } = this.props;
 
     return (
       <div
-        className={styles['sc-message-list']}
+        className={`${styles['sc-message-list']} ${fullscreen &&
+          styles['sc-message-list--fullscreen']}`}
         ref={el => {
           this.scrollList = el;
         }}
       >
-        {messages.map((message, i) => (
+        {messageList.map((message, i) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Message message={message} key={i} />
+          <Message message={message} key={i} fullscreen={fullscreen} />
         ))}
       </div>
     );

@@ -1,13 +1,36 @@
 import React, { Component } from 'react';
+import isEqual from 'lodash/isEqual';
 import * as chatActions from '@/actions/chat';
-import messageHistory from './messageHistory';
 
 class ChatService extends Component {
   state = {
-    messageList: messageHistory,
+    messageList: [],
     newMessagesCount: 0,
     isOpen: false,
   };
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const {
+      chatReducer: { messages = {} },
+      agentProfile = {},
+    } = nextProps;
+
+    if (!isEqual(messages[agentProfile.id], prevState.messageList)) {
+      return {
+        messageList: messages[agentProfile.id],
+      };
+    }
+
+    return null;
+  }
+
+  componentDidMount() {
+    const { chatReducer = {}, agentProfile = {} } = this.props;
+
+    this.setState({
+      messageList: chatReducer.messages[agentProfile.id] || [],
+    });
+  }
 
   onMessageWasSent = message => {
     this.setState(state => ({
@@ -77,7 +100,7 @@ class ChatService extends Component {
     };
 
     const Launcher = React.cloneElement(React.Children.only(children), opts);
-    console.log(Launcher);
+
     return Launcher;
   }
 }

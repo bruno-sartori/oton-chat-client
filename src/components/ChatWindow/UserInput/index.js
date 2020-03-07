@@ -146,10 +146,13 @@ class UserInput extends Component {
 
   render() {
     const { emojiPickerIsOpen, inputActive } = this.state;
-    const { showEmoji } = this.props;
+    const { showEmoji, fullscreen = false } = this.props;
 
     return (
-      <form className={`${styles['sc-user-input']} ${inputActive ? styles.active : ''}`}>
+      <form
+        className={`${styles['sc-user-input']} ${inputActive ? styles.active : ''} ${fullscreen &&
+          styles['sc-user-input--fullscreen']}`}
+      >
         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
         <div
           role="button"

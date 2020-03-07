@@ -6,3 +6,4 @@
 export const setUserList = payload => ({ type: 'chat/setUserList', payload });
 export const addMessage = payload => ({ type: 'chat/addMessage', payload });
 export const messageReaded = payload => ({ type: 'chat/messageReaded', payload });
+export const setMessages = payload => ({ type: 'chat/setMessages', payload });

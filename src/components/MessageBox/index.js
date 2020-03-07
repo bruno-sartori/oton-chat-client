@@ -52,6 +52,7 @@ class MessageBox extends Component {
               chatReducer={chatReducer}
               socket={socket}
               agentProfile={{
+                id: o.id,
                 teamName: o.name,
                 imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png',
               }}
