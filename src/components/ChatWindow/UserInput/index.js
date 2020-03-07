@@ -5,7 +5,7 @@ import FileIcon from '../Icon/FileIcon';
 import EmojiIcon from '../Icon/EmojiIcon';
 import PopupWindow from '../PopupWindow';
 import EmojiPicker from '../EmojiPicker';
-import './index.less';
+import styles from './index.less';
 
 class UserInput extends Component {
   state = {
@@ -122,14 +122,14 @@ class UserInput extends Component {
 
     if (inputHasText) {
       return (
-        <div className="sc-user-input--button">
+        <div className={styles['sc-user-input--button']}>
           <SendIcon onClick={this.submitText} />
         </div>
       );
     }
 
     return (
-      <div className="sc-user-input--button">
+      <div className={styles['sc-user-input--button']}>
         <FileIcon onClick={this.showFilePicker} />
         <input
           type="file"
@@ -149,7 +149,7 @@ class UserInput extends Component {
     const { showEmoji } = this.props;
 
     return (
-      <form className={`sc-user-input ${inputActive ? 'active' : ''}`}>
+      <form className={`${styles['sc-user-input']} ${inputActive ? styles.active : ''}`}>
         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
         <div
           role="button"
@@ -167,11 +167,11 @@ class UserInput extends Component {
           onKeyUp={this.handleKeyUp}
           contentEditable="true"
           placeholder="Write a reply..."
-          className="sc-user-input--text"
+          className={styles['sc-user-input--text']}
         />
-        <div className="sc-user-input--buttons">
-          <div className="sc-user-input--button" />
-          <div className="sc-user-input--button">
+        <div className={styles['sc-user-input--buttons']}>
+          <div className={styles['sc-user-input--button']} />
+          <div className={styles['sc-user-input--button']}>
             {showEmoji && (
               <EmojiIcon
                 onClick={this.toggleEmojiPicker}

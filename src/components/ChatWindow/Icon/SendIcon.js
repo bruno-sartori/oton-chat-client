@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../UserInput/index.less'; // TODO: extrair css para pasta Icon
 
 const SendIcon = props => {
   const { onFocus, onBlur, onClick } = props;
@@ -12,11 +13,11 @@ const SendIcon = props => {
         e.preventDefault();
         onClick(e);
       }}
-      className="sc-user-input--send-icon-wrapper"
+      className={styles['sc-user-input--send-icon-wrapper']}
     >
       <svg
         version="1.1"
-        className="sc-user-input--send-icon"
+        className={styles['sc-user-input--send-icon']}
         xmlns="http://www.w3.org/2000/svg"
         x="0px"
         y="0px"

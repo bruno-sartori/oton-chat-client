@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ChatWindow } from '@/components/ChatWindow';
 import ChatService from '@/components/ChatService';
-import './index.less';
+import styles from './index.less';
 
 class MessageBox extends Component {
   state = {
@@ -46,7 +46,7 @@ class MessageBox extends Component {
     return (
       <div id="sc-launcher">
         {openedBoxes.map((o, i) => (
-          <div key={o.id} className="msg_box" style={{ right: setrightmargin(i) }}>
+          <div key={o.id} className={styles.msg_box} style={{ right: setrightmargin(i) }}>
             <ChatService
               dispatch={dispatch}
               chatReducer={chatReducer}

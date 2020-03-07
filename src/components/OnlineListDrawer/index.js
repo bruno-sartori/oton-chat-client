@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Drawer } from 'antd';
 import MessageBox from '@/components/MessageBox';
-import './index.less';
 import List from './List';
+import './index.less';
 
 class OnlineListDrawer extends Component {
   state = {

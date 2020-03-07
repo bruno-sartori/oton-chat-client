@@ -4,7 +4,7 @@ import logger from '@/utils/logger';
 import TextMessage from './TextMessage';
 import EmojiMessage from './EmojiMessage';
 import FileMessage from './FileMessage';
-import './index.less';
+import styles from './index.less';
 
 class Message extends Component {
   renderMessageOfType = type => {
@@ -25,12 +25,18 @@ class Message extends Component {
 
   render() {
     const { message = {} } = this.props;
-    const contentClassList = ['sc-message--content', message.author === 'me' ? 'sent' : 'received'];
+    const contentClassList = [
+      styles['sc-message--content'],
+      message.author === 'me' ? styles.sent : styles.received,
+    ];
 
     return (
-      <div className="sc-message">
+      <div className={styles['sc-message']}>
         <div className={contentClassList.join(' ')}>
-          <div className="sc-message--avatar" style={{ backgroundImage: `url(${chatIconUrl})` }} />
+          <div
+            className={styles['sc-message--avatar']}
+            style={{ backgroundImage: `url(${chatIconUrl})` }}
+          />
           {this.renderMessageOfType(message.type)}
         </div>
       </div>

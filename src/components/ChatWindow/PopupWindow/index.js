@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.less';
+import styles from './index.less';
 
 class PopupWindow extends Component {
   componentDidMount() {
@@ -27,15 +27,15 @@ class PopupWindow extends Component {
 
     return (
       <div
-        className="sc-popup-window"
+        className={styles['sc-popup-window']}
         ref={e => {
           this.emojiPopup = e;
         }}
       >
-        <div className={`sc-popup-window--cointainer ${isOpen ? '' : 'closed'}`}>
+        <div className={`${styles['sc-popup-window--cointainer']} ${isOpen ? '' : styles.closed}`}>
           <input
             onChange={onInputChange}
-            className="sc-popup-window--search"
+            className={styles['sc-popup-window--search']}
             placeholder="Search emoji..."
           />
           {children}

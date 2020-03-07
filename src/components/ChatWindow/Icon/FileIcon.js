@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from '../UserInput/index.less'; // TODO: extrair css para pasta Icon
 
 class FileIcon extends Component {
   handleClick = e => {
@@ -20,11 +21,11 @@ class FileIcon extends Component {
         onFocus={onFocus}
         onBlur={onBlur}
         onClick={this.handleClick}
-        className="sc-user-input--file-icon-wrapper"
+        className={styles['sc-user-input--file-icon-wrapper']}
       >
         <svg
           version="1.1"
-          className="sc-user-input--file-icon"
+          className={styles['sc-user-input--file-icon']}
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
           y="0px"
