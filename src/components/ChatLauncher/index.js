@@ -50,6 +50,10 @@ class ChatLauncher extends Component {
         dispatch(chatActions.setUserList(data));
       });
 
+      this.socket.on('set-user-messages', data => {
+        dispatch(chatActions.setMessages(data));
+      });
+
       this.socket.on('message-received', data => {
         dispatch(chatActions.addMessage(data));
       });
@@ -69,6 +73,10 @@ class ChatLauncher extends Component {
     return false;
   };
 
+  handleSelectUser = e => {
+    this.socket.emit('get-user-messages', { userId: e.key });
+  };
+
   toggleDrawer = () => {
     this.setState(state => ({ visible: !state.visible }));
   };
@@ -84,11 +92,12 @@ class ChatLauncher extends Component {
     const { chatReducer, dispatch } = this.props;
 
     return (
-      <div style={{ padding: 100 }}>
+      <div>
         <FloatingButton onClick={this.toggleDrawer} />
         <OnlineListDrawer
           chatReducer={chatReducer}
           dispatch={dispatch}
+          onSelectUser={this.handleSelectUser}
           onClose={this.closeDrawer}
           visible={visible}
           socket={this.socket}

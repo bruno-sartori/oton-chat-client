@@ -14,6 +14,12 @@
   transition: 0.3s ease-in-out;
 }
 
+.sc-chat-window--fullscreen {
+  width: 100%;
+  height: 100vh;
+  max-height: inherit;
+}
+
 .sc-chat-window.closed {
   bottom: 90px;
   visibility: hidden;
@@ -26,6 +32,10 @@
   overflow-y: auto;
   background-color: white;
   background-size: 100%;
+}
+
+.sc-message-list--fullscreen {
+  height: 90%;
 }
 
 .sc-message--me {

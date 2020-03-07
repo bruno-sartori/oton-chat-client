@@ -3,6 +3,7 @@ import { Badge } from 'antd';
 import styles from './ListItem.less';
 
 const ListItem = ({ person, showBox }) => {
+  console.log(person);
   return (
     <div onClick={() => showBox(person)} className={styles['list-item']} key={person.id}>
       <Badge color={person.online ? 'green' : 'gray'} />

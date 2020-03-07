@@ -27,6 +27,15 @@ const chatModel = {
         users: payload,
       };
     },
+    setMessages(state, { payload }) {
+      return {
+        ...state,
+        messages: {
+          ...state.messages,
+          [payload.userId]: payload.messages,
+        },
+      };
+    },
     addMessage(state, { payload }) {
       return {
         ...state,

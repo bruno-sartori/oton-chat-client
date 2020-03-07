@@ -66,6 +66,14 @@ module.exports = {
         ],
       },
       {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'css-loader',
+          },
+        ],
+      },
+      {
         test: /\.less$/,
         use: [
           {
@@ -74,24 +82,16 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
+              importLoaders: 1,
               modules: true,
-              // localIdentName: '[local]__[hash:base64:5]',
             },
           },
           {
             loader: 'less-loader',
           },
         ],
-        // exclude: path.resolve(__dirname, './node_modules'),
-      },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'css-loader',
-          },
-        ],
+        // include: path.resolve(__dirname, './src'),
+        exclude: path.resolve(__dirname, './node_modules'),
       },
     ],
   },
@@ -101,7 +101,7 @@ module.exports = {
 
   // By default webpack logs warnings if the bundle is bigger than 200kb.
   performance: { hints: false },
-  /*
+
   externals: {
     // Don't bundle react or react-dom
     react: {
@@ -116,5 +116,5 @@ module.exports = {
       amd: 'ReactDOM',
       root: 'ReactDOM',
     },
-  }, */
+  },
 };

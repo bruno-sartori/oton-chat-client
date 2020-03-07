@@ -11,6 +11,7 @@ class OnlineListDrawer extends Component {
 
   showBox = person => {
     let { openedBoxes = [] } = this.state;
+    const { onSelectUser } = this.props;
 
     if (!openedBoxes.find(o => o.id === person.id)) {
       if (openedBoxes.length >= 3) {
@@ -20,6 +21,8 @@ class OnlineListDrawer extends Component {
       openedBoxes = [...openedBoxes, { ...person }];
 
       this.setState({ openedBoxes });
+
+      onSelectUser({ key: person.id });
     }
   };
 

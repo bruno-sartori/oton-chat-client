@@ -17,18 +17,36 @@ class ChatWindow extends Component {
   };
 
   render() {
-    const { messageList = [], isOpen, agentProfile = {}, onClose, showEmoji } = this.props;
-    const classList = [styles['sc-chat-window'], isOpen ? styles.opened : styles.closed];
+    const {
+      messageList = [],
+      isOpen,
+      agentProfile = {},
+      onClose,
+      showEmoji,
+      fullscreen,
+    } = this.props;
+    const classList = [
+      styles['sc-chat-window'],
+      fullscreen && styles['sc-chat-window--fullscreen'],
+      isOpen ? styles.opened : styles.closed,
+    ];
 
     return (
       <div className={classList.join(' ')}>
-        <Header
-          teamName={agentProfile.teamName}
+        {!fullscreen && (
+          <Header
+            teamName={agentProfile.teamName}
+            imageUrl={agentProfile.imageUrl}
+            onClose={onClose}
+          />
+        )}
+        <MessageList
+          fullscreen={fullscreen}
+          messageList={messageList}
           imageUrl={agentProfile.imageUrl}
-          onClose={onClose}
         />
-        <MessageList messages={messageList} imageUrl={agentProfile.imageUrl} />
         <UserInput
+          fullscreen={fullscreen}
           onSubmit={this.onUserInputSubmit}
           onFilesSelected={this.onFilesSelected}
           showEmoji={showEmoji}

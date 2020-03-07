@@ -24,14 +24,14 @@ class Message extends Component {
   };
 
   render() {
-    const { message = {} } = this.props;
+    const { message = {}, fullscreen = false } = this.props;
     const contentClassList = [
       styles['sc-message--content'],
       message.author === 'me' ? styles.sent : styles.received,
     ];
 
     return (
-      <div className={styles['sc-message']}>
+      <div className={`${styles['sc-message']} ${fullscreen && styles['sc-message--fullscreen']}`}>
         <div className={contentClassList.join(' ')}>
           <div
             className={styles['sc-message--avatar']}
