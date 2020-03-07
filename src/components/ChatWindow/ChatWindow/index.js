@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import MessageList from '../MessageList';
 import UserInput from '../UserInput';
 import Header from '../Header';
-import './index.less';
+import styles from './index.less';
 
 class ChatWindow extends Component {
   onUserInputSubmit = message => {
@@ -18,7 +18,7 @@ class ChatWindow extends Component {
 
   render() {
     const { messageList = [], isOpen, agentProfile = {}, onClose, showEmoji } = this.props;
-    const classList = ['sc-chat-window', isOpen ? 'opened' : 'closed'];
+    const classList = [styles['sc-chat-window'], isOpen ? styles.opened : styles.closed];
 
     return (
       <div className={classList.join(' ')}>

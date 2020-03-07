@@ -1,16 +1,17 @@
 import React from 'react';
+import styles from '../UserInput/index.less'; // TODO: extrair css para pasta Icon
 
 const EmojiIcon = ({ tooltip, onClick, isActive }) => (
-  <div className="sc-user-input--picker-wrapper">
+  <div className={styles['sc-user-input--picker-wrapper']}>
     {tooltip}
     <button
       type="button"
       id="sc-emoji-picker-button"
-      className="sc-user-input--emoji-icon-wrapper"
+      className={styles['sc-user-input--emoji-icon-wrapper']}
       onClick={onClick}
     >
       <svg
-        className={`sc-user-input--emoji-icon ${isActive ? 'active' : ''}`}
+        className={`${styles['sc-user-input--emoji-icon']} ${isActive ? styles.active : ''}`}
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         x="0px"

@@ -4,7 +4,7 @@ import launcherIcon from '@/assets/logo-no-bg.svg';
 import incomingMessageSound from '@/assets/sounds/notification.mp3';
 import launcherIconActive from '@/assets/close-icon.png';
 import ChatWindow from '../ChatWindow';
-import './index.less';
+import styles from './index.less';
 
 class Launcher extends Component {
   state = {
@@ -59,22 +59,22 @@ class Launcher extends Component {
 
     const isOpen = typeof propsIsOpen !== 'undefined' ? propsIsOpen : stateIsOpen;
 
-    const classList = ['sc-launcher', isOpen ? 'opened' : ''];
+    const classList = [styles['sc-launcher'], isOpen ? styles.opened : ''];
 
     const MessageCount = props => {
       if (props.count === 0 || props.isOpen === true) {
         return null;
       }
 
-      return <div className="sc-new-messages-count">{props.count}</div>;
+      return <div className={styles['sc-new-messages-count']}>{props.count}</div>;
     };
 
     return (
       <div id="sc-launcher">
         <div className={classList.join(' ')} onClick={this.handleClick}>
           <MessageCount count={newMessagesCount} isOpen={isOpen} />
-          <img alt="open-icon" className="sc-open-icon" src={launcherIconActive} />
-          <img alt="closed-icon" className="sc-closed-icon" src={launcherIcon} />
+          <img alt="open-icon" className={styles['sc-open-icon']} src={launcherIconActive} />
+          <img alt="closed-icon" className={styles['sc-closed-icon']} src={launcherIcon} />
         </div>
         <ChatWindow
           messageList={messageList}

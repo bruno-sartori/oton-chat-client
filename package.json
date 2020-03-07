@@ -53,6 +53,7 @@
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^2.3.0",
     "sweetalert2": "^9.3.16",
+    "url-loader": "^3.0.0",
     "webpack": "4",
     "xml-js": "^1.6.11"
   },

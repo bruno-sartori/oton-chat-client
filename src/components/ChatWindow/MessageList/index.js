@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Message from '../Messages';
+import styles from '../ChatWindow/index.less'; // TODO: extrair css para pasta MessageList
 
 class MessageList extends Component {
-  componentDidUpdate(_prevProps, _prevState) {
+  componentDidUpdate() {
     this.scrollList.scrollTop = this.scrollList.scrollHeight;
   }
 
@@ -10,8 +11,14 @@ class MessageList extends Component {
     const { messages = [] } = this.props;
 
     return (
-      <div className="sc-message-list" ref={el => (this.scrollList = el)}>
+      <div
+        className={styles['sc-message-list']}
+        ref={el => {
+          this.scrollList = el;
+        }}
+      >
         {messages.map((message, i) => (
+          // eslint-disable-next-line react/no-array-index-key
           <Message message={message} key={i} />
         ))}
       </div>

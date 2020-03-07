@@ -33,9 +33,10 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
-              outputPath: 'images',
+              limit: 8000,
+              name: 'images/[hash]-[name].[ext]',
             },
           },
         ],
@@ -65,14 +66,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'css-loader',
-          },
-        ],
-      },
-      {
         test: /\.less$/,
         use: [
           {
@@ -81,15 +74,24 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1,
+              sourceMap: true,
               modules: true,
+              // localIdentName: '[local]__[hash:base64:5]',
             },
           },
           {
             loader: 'less-loader',
           },
         ],
-        exclude: path.resolve(__dirname, './node_modules'),
+        // exclude: path.resolve(__dirname, './node_modules'),
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'css-loader',
+          },
+        ],
       },
     ],
   },
